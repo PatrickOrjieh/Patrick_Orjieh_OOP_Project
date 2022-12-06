@@ -51,16 +51,19 @@ public  class Sheep extends Animal {
     private sheepPedigree pedigree;
     private double weight;
     private int age;
-    int desiredLength = 5;
-    String random = UUID.randomUUID().toString().substring(0, desiredLength);
 
     public Sheep() {
-        this.setName(random);
+        this.setName(new Utility().randomName());
     }
 
     public Sheep(String name, String pedigree, double weight, int age) {
         super(name);
-        this.pedigree = sheepPedigree.valueOfOrDefault(pedigree);
+        try {
+            this.pedigree = Sheep.sheepPedigree.valueOfOrDefault(pedigree);
+        }
+        catch(IllegalArgumentException e){
+            this.pedigree = Sheep.sheepPedigree.valueOf("BELCLARE");
+        }
         this.weight = weight;
         this.age = age;
     }
@@ -91,12 +94,12 @@ public  class Sheep extends Animal {
 
     @Override
     public String toString() {
-        return "Sheep{" +
-                "id= " + this.getUniqueId() +
-                ", name= " + this.getName() +
-                ", pedigree=" + pedigree +
-                ", weight=" + weight +
-                ", age=" + age +
+        return "Sheep{" + "\n" +
+                "id= " + this.getUniqueId() + "\n" +
+                ", name= " + this.getName() + "\n" +
+                ", pedigree=" + pedigree + "\n" +
+                ", weight=" + weight + "\n" +
+                ", age=" + age + "\n" +
                 '}';
     }
 }

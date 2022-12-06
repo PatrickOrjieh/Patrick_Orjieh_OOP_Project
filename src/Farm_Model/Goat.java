@@ -4,32 +4,24 @@ import java.util.Random;
 import java.util.UUID;
 
 public class Goat extends Animal implements Milkable{
-    private int udders;
-    int desiredLength = 5;
-    String random = UUID.randomUUID().toString().substring(0, desiredLength);
+
+    private double milkYield;
 
     public Goat() {
-        this.setName(random);
+        this.setName(new Utility().randomName());
     }
 
-    public Goat(String name, int udders) {
+    public Goat(String name) {
         super(name);
-        this.udders = udders;
     }
 
-    public int getUdders() {
-        return udders;
-    }
-
-    public void setUdders(int udders) {
-        this.udders = udders;
-    }
-
-    @Override
-    public double produceMilk(int times) {
-        double produced = times * this.getCapacity();
-        return produced;
-    }
+//    public int getUdders() {
+//        return udders;
+//    }
+//
+//    public void setUdders(int udders) {
+//        this.udders = udders;
+//    }
 
     //    double getCapacity() returns the udder capacity
 //    Udder capacity is a random value between 2 and 3.
@@ -40,11 +32,18 @@ public class Goat extends Animal implements Milkable{
     }
 
     @Override
+    public double produceMilk() {
+        double produced = this.getCapacity();
+        this.milkYield =+ produced;
+        return produced;
+    }
+
+    @Override
     public String toString() {
-        return "Goat{" +
-                "id= " + this.getUniqueId() +
-                ", name= " + getName() +
-                " udders=" + udders +
+        return "Goat{" + "\n" +
+                "id= " + this.getUniqueId() + "\n" +
+                ", name= " + getName() + "\n" +
+                " Total yield Since Initial Production= " + milkYield + "\n" +
                 '}';
     }
 }

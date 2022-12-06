@@ -10,6 +10,7 @@ public abstract class Animal {
 
     public Animal(){
         this.uniqueId = UUID.randomUUID();
+
     }
     public Animal (String name){
         this.uniqueId = UUID.randomUUID();
@@ -34,7 +35,7 @@ public abstract class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
+        return "Animal{" + "\n" +
                 "uniqueId=" + uniqueId.toString() +
                 ", name='" + name +
                 '}';

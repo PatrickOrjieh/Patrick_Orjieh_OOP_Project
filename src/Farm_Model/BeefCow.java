@@ -42,16 +42,20 @@ public  class BeefCow extends Animal {
     private beefCowPedigree pedigree;
     private double weight;
     private int age;
-    int desiredLength = 5;
-    String random = UUID.randomUUID().toString().substring(0, desiredLength);
 
     public BeefCow() {
-        this.setName(random);
+        this.setName(new Utility().randomName());
     }
 
+    // if a beef cpw is created and the pedigree given is not valid the system automatically gives it ANGUS to beat the error
     public BeefCow(String name, String pedigree, double weight, int age) {
         super(name);
-        this.pedigree = beefCowPedigree.valueOfOrDefault(pedigree);
+        try {
+            this.pedigree = beefCowPedigree.valueOfOrDefault(pedigree);
+        }
+        catch(IllegalArgumentException e){
+            this.pedigree = beefCowPedigree.valueOf("ANGUS");
+        }
         this.weight = weight;
         this.age = age;
     }
@@ -82,12 +86,12 @@ public  class BeefCow extends Animal {
 
     @Override
     public String toString() {
-        return "BeefCow{" +
-                "id= " + this.getUniqueId() +
-                ", name= " + this.getName() +
-                ", pedigree=" + pedigree +
-                ", weight=" + weight +
-                ", age=" + age +
+        return "BeefCow{" + "\n" +
+                "id= " + this.getUniqueId() + "\n" +
+                ", name= " + this.getName() + "\n" +
+                ", pedigree=" + pedigree + "\n" +
+                ", weight=" + weight + "\n" +
+                ", age=" + age + "\n" +
                 '}';
     }
 }
