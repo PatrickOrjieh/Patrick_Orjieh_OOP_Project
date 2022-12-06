@@ -1,0 +1,13 @@
+2
+TankG 1234
+TankC 2345
+3
+BeefCow beef1 Salers 90 1
+DairyCow diaryCow1
+Sheep sheep1 lleyn 23 2
+M1
+3
+BeefCow beef3 Salers 145 4
+Goat goat1
+Sheep sheep3 Cheviot 39 1
+M2

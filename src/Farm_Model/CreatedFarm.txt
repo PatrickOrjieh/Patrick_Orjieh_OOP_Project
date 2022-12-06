@@ -1,0 +1,17 @@
+Farm-----{uniqueId=90475d49-5b0e-4af4-8513-fc0837b5235b, owner='cdsfv's Farm
+, shed=
+[*****Shed{ uniqueId=adc4028d-9873-4abf-b18e-ee54665540fb
+, herd= 
+[$$$BeefCow{    id= 0f59745e-42d4-4793-8a86-9a0874e6f5d8, name= beef1, pedigree=Salers, weight=90.0, age=1
+}, $$$$DiaryCow{   id= d87bf37d-74fc-4b93-b321-e79ccbe30636, name= diaryCow1 Total yield Since Initial Production= 121.08571018385494
+}, $$$$Sheep{   id= ef1fb49a-cd56-4319-b807-da206ea43de0, name= sheep1, pedigree=Lleyn, weight=23.0, age=2
+}], tank=****MilkTank{name= TankC, customCapacity=2345.0, freeSpace=2223.914289816145, milkStored=121.08571018385494}}
+
+, *****Shed{ uniqueId=165ad8e6-4fa8-4b70-9bb6-cf8544759ade
+, herd= 
+[$$$BeefCow{    id= 7ef77ed9-2e2b-481f-81d0-bf1f4428db8f, name= beef3, pedigree=Salers, weight=145.0, age=4
+}, $$$$Goat{    id= aba03325-0a31-4bf0-9947-7a7b2d6cf67a, name= goat1 Total yield Since Initial Production= 9.997156446082425
+}, $$$$Sheep{   id= 72ee5578-c58f-4fb1-a83c-8c7d9c40d648, name= sheep3, pedigree=Cheviot, weight=39.0, age=1
+}], tank=****MilkTank{name= TankG, customCapacity=1234.0, freeSpace=1224.0028435539175, milkStored=9.997156446082425}}
+
+]}

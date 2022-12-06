@@ -1,0 +1,16 @@
+3 // number of sheds to be created in the farm
+TankG 1234 //initially assume 2 tanks on farm, one for goats, one for cows
+TankC 2345 //tankName capacity
+3 //number of animals in the first shed
+BeefCow xxx 23 1 Daisy //animalType and fields of class
+DairyCow xxx 23 1 Daisy 345
+Sheep xxx 23 1 Baa
+M1 //if there are milkables in the shed there will be machine details in the file
+2 //number of animals in second shed
+BeefCow xxx 23 1 Daisy
+Sheep xxx 23 1 Baa //no milkables in second shed therefore no machine details
+3 //number of animals in third shed
+BeefCow xxx 23 1 Daisy
+Goat xxx 23 1 Daisy 345
+Sheep xxx 23 1 Baa
+M2

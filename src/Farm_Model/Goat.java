@@ -3,7 +3,7 @@ package Farm_Model;
 import java.util.Random;
 import java.util.UUID;
 
-public class Goat extends Animal implements Milkable{
+public class Goat extends Animal implements Milkable,Comparable<Goat>{
 
     private double milkYield;
 
@@ -34,16 +34,30 @@ public class Goat extends Animal implements Milkable{
     @Override
     public double produceMilk() {
         double produced = this.getCapacity();
-        this.milkYield =+ produced;
+        this.milkYield = this.milkYield +  produced;
         return produced;
+    }
+
+    public double getMilkYield() {
+        return milkYield;
+    }
+
+    public void setMilkYield(double milkYield) {
+        this.milkYield = milkYield;
     }
 
     @Override
     public String toString() {
-        return "Goat{" + "\n" +
-                "id= " + this.getUniqueId() + "\n" +
-                ", name= " + getName() + "\n" +
+        return "$$$$Goat{" +
+                "    id= " + this.getUniqueId() +
+                ", name= " + getName() +
                 " Total yield Since Initial Production= " + milkYield + "\n" +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(Goat o) {
+        return ((Double)this.getMilkYield()).compareTo(o.getMilkYield());
     }
 }

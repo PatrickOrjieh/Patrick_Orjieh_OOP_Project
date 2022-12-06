@@ -1,6 +1,7 @@
 package Farm_Model;
 
-public interface Milkable {
-    public abstract  double produceMilk();
+import java.util.Comparator;
 
+public interface Milkable{
+    public abstract  double produceMilk();
 }

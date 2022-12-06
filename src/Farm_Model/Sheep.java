@@ -2,7 +2,7 @@ package Farm_Model;
 
 import java.util.UUID;
 
-public  class Sheep extends Animal {
+public  class Sheep extends Animal implements Comparable<Sheep>{
     //    code for validation of enums was gotten from  = https://stackoverflow.com/questions/8389150/java-enum-elements-with-spaces
     public enum sheepPedigree{
 
@@ -72,8 +72,12 @@ public  class Sheep extends Animal {
         return pedigree;
     }
 
-    public void setPedigree(String pedigree) {
-        this.pedigree = sheepPedigree.valueOfOrDefault(pedigree);
+    public void setPedigree(String pedigree) {try {
+        this.pedigree = Sheep.sheepPedigree.valueOfOrDefault(pedigree);
+    }
+    catch(IllegalArgumentException e){
+        this.pedigree = Sheep.sheepPedigree.valueOf("BELCLARE");
+    }
     }
 
     public double getWeight() {
@@ -94,12 +98,28 @@ public  class Sheep extends Animal {
 
     @Override
     public String toString() {
-        return "Sheep{" + "\n" +
-                "id= " + this.getUniqueId() + "\n" +
-                ", name= " + this.getName() + "\n" +
-                ", pedigree=" + pedigree + "\n" +
-                ", weight=" + weight + "\n" +
+        return "$$$$Sheep{" +
+                "   id= " + this.getUniqueId() +
+                ", name= " + this.getName() +
+                ", pedigree=" + pedigree +
+                ", weight=" + weight +
                 ", age=" + age + "\n" +
                 '}';
+    }
+    @Override
+    public int compareTo(Sheep o) {
+        int x = (this.getPedigree()).compareTo(o.getPedigree());
+        int y = ((Double)this.getWeight()).compareTo(o.getWeight());
+        if(x ==0){
+            if (y == 0){
+                return((Integer)this.getAge()).compareTo(o.getAge());
+            }
+            else{
+                return y;
+            }
+        }
+        else{
+            return x;
+        }
     }
 }

@@ -1,6 +1,8 @@
 package Farm_Model;
 
 public class MilkTank {
+    //creating an attribute for tank to distinguish the tanks after being created
+    private String name;
     private double customCapacity;
     private static final int STANDARD_CAPACITY = 2000;
 
@@ -11,9 +13,16 @@ public class MilkTank {
     private double milkStored;
 
     public MilkTank(){
+        this.setName(new Utility().randomName());
         this.customCapacity = STANDARD_CAPACITY;
 //        this.freeSpace = customCapacity;
 //        this.milkStored = this.customCapacity - this.freeSpace;
+        this.milkStored = 0;
+    }
+
+    public MilkTank(String name) {
+        this.name = name;
+        this.customCapacity = STANDARD_CAPACITY;
         this.milkStored = 0;
     }
 
@@ -22,6 +31,20 @@ public class MilkTank {
 //        this.freeSpace = customCapacity;
    //     this.milkStored = this.customCapacity - this.freeSpace;
         this.milkStored = 0;
+    }
+
+    public MilkTank(String name, double customCapacity){
+        this.name = name;
+        this.customCapacity = customCapacity;
+        this.milkStored =0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getCustomCapacity() {
@@ -75,8 +98,9 @@ public class MilkTank {
 
     @Override
     public String toString() {
-        return "MilkTank{" + "\n" +
-                "customCapacity=" + customCapacity +
+        return "****MilkTank{" +
+                "name= " + name +
+                ", customCapacity=" + customCapacity +
                 ", freeSpace=" + (customCapacity  - milkStored) +
                 ", milkStored=" + milkStored +
                 '}';

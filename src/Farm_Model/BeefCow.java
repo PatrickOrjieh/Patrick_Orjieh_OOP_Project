@@ -1,8 +1,11 @@
 package Farm_Model;
 
-import java.util.UUID;
+import org.jetbrains.annotations.NotNull;
 
-public  class BeefCow extends Animal {
+import java.util.UUID;
+//githiub repo link - https://github.com/PatrickOrjieh/Patrick_Orjieh_OOP_Project.git
+
+public  class BeefCow extends Animal implements Comparable<BeefCow> {
 //    code for validation of enums was gotten from  = https://stackoverflow.com/questions/8389150/java-enum-elements-with-spaces
     public enum beefCowPedigree{
 
@@ -65,7 +68,12 @@ public  class BeefCow extends Animal {
     }
 
     public void setPedigree(String pedigree) {
-        this.pedigree = beefCowPedigree.valueOfOrDefault(pedigree);
+        try {
+            this.pedigree = beefCowPedigree.valueOfOrDefault(pedigree);
+        }
+        catch(IllegalArgumentException e){
+            this.pedigree = beefCowPedigree.valueOf("ANGUS");
+        }
     }
 
     public double getWeight() {
@@ -86,12 +94,32 @@ public  class BeefCow extends Animal {
 
     @Override
     public String toString() {
-        return "BeefCow{" + "\n" +
-                "id= " + this.getUniqueId() + "\n" +
-                ", name= " + this.getName() + "\n" +
-                ", pedigree=" + pedigree + "\n" +
-                ", weight=" + weight + "\n" +
+        return "$$$BeefCow{" +
+                "    id= " + this.getUniqueId() +
+                ", name= " + this.getName() +
+                ", pedigree=" + pedigree +
+                ", weight=" + weight +
                 ", age=" + age + "\n" +
                 '}';
+    }
+
+
+    //comparing the beefcows according to the specification given based on pedigree and if pedigree is the same
+    //based on weight and if thats the same sort based on age
+    @Override
+    public int compareTo(BeefCow o) {
+        int x = (this.getPedigree()).compareTo(o.getPedigree());
+        int y = ((Double)this.getWeight()).compareTo(o.getWeight());
+        if(x ==0){
+            if (y == 0){
+                return((Integer)this.getAge()).compareTo(o.getAge());
+            }
+            else{
+                return y;
+            }
+        }
+        else{
+            return x;
+        }
     }
 }
