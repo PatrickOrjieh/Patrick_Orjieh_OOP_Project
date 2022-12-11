@@ -1,8 +1,0 @@
-pato kk
-jj texel 90 2
-zz test 110 3
-dc1
-dc2
-bc1 blonde 652 3
-bc2 shorthorn 891 4
-Tankg Tankd
